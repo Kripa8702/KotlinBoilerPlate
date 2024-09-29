@@ -5,6 +5,12 @@ plugins {
     id("com.google.dagger.hilt.android")
 }
 
+//val keystorePropertiesFile = rootProject.file("key.properties")
+//
+//val keystoreProperties = Properties()
+//
+//keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
 android {
     namespace = "com.boilerplate.kotlin"
     compileSdk = 34
@@ -40,6 +46,15 @@ android {
             useSupportLibrary = true
         }
     }
+
+//     signingConfigs {
+//        create("config") {
+//            keyAlias = keystoreProperties["keyAlias"] as String
+//            keyPassword = keystoreProperties["keyPassword"] as String
+//            storeFile = file(keystoreProperties["storeFile"] as String)
+//            storePassword = keystoreProperties["storePassword"] as String
+//        }
+//    }
 
     buildTypes {
         release {
@@ -95,7 +110,7 @@ dependencies {
     // Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-    implementation("androidx.hilt:hilt-navigation:1.2.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Network Request
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))

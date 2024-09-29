@@ -62,23 +62,23 @@ val Typography = Typography(
     ),
     labelLarge = TextStyle(
         fontFamily = montserratFamily,
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
-        lineHeight = 20.sp,
-        letterSpacing = 0.15.sp
-    ),
-    labelMedium = TextStyle(
-        fontFamily = montserratFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Medium,
         fontSize = 18.sp,
         lineHeight = 18.sp,
         letterSpacing = 0.15.sp
     ),
-    labelSmall = TextStyle(
+    labelMedium = TextStyle(
         fontFamily = montserratFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
         lineHeight = 16.sp,
+        letterSpacing = 0.15.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = montserratFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 14.sp,
         letterSpacing = 0.15.sp
     ),
 )

@@ -1,10 +1,12 @@
 package com.boilerplate.kotlin.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.boilerplate.kotlin.presentation.screens.DummyScreen
+import com.boilerplate.kotlin.presentation.screens.dummy.DummyScreen
+import com.boilerplate.kotlin.presentation.screens.dummy.DummyViewModel
 import com.boilerplate.kotlin.utils.NavigationHelper
 
 @Composable
@@ -12,7 +14,7 @@ fun AppNavHost() {
     val navController = rememberNavController()
 
     // Hilt view models
-//    val cartViewModel = hiltViewModel<CartViewModel>()
+    val dummyViewModel = hiltViewModel<DummyViewModel>()
 
     NavHost(
         navController = navController,
@@ -25,6 +27,7 @@ fun AppNavHost() {
         ) {
             DummyScreen(
                 navController = navController,
+                dummyViewModel = dummyViewModel
             )
         }
 
