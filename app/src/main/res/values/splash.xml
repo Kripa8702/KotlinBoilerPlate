@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+    <style name="Theme.KotlinBoilerPlate.MySplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/bg_light</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.KotlinBoilerPlate</item>
+    </style>
+</resources>
