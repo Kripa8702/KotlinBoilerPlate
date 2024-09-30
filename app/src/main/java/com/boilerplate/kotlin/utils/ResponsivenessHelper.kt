@@ -1,10 +1,12 @@
-package com.desiticketwala.kiosk.utils
+package com.boilerplate.kotlin.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+
+/** This is for Kiosk applications */
 
 @Composable
 fun Dp.toResponsive(): Dp {

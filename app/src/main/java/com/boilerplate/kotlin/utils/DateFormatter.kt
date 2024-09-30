@@ -7,12 +7,20 @@ import java.util.Locale
 
 class DateFormatter {
     companion object {
-        fun formatDate(date: String): String {
-            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val outputFormat = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.getDefault())
-            val formattedDate = inputFormat.parse(date) ?: return "Invalid date"
+        fun formatDateFromString(
+            date: String,
+            format: String = "EEEE, dd MMM yyyy",
+        ): String {
+            try {
+                val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-            return outputFormat.format(formattedDate)
+                val outputFormat = SimpleDateFormat(format, Locale.getDefault())
+                val formattedDate = inputFormat.parse(date) ?: return "Invalid date"
+
+                return outputFormat.format(formattedDate)
+            } catch (e: Exception) {
+                return date
+            }
         }
 
         fun formatTime(time: String): String {
@@ -23,8 +31,11 @@ class DateFormatter {
             return outputFormat.format(formattedTime)
         }
 
-        fun formatDateFromMilliseconds(milliseconds: Long): String {
-            val outputFormat = SimpleDateFormat("EEEE, dd MMMM", Locale.getDefault())
+        fun formatDateFromMilliseconds(
+            milliseconds: Long,
+            format: String = "EEEE, dd MMM yyyy",
+        ): String {
+            val outputFormat = SimpleDateFormat(format, Locale.getDefault())
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = milliseconds
@@ -32,25 +43,7 @@ class DateFormatter {
             return outputFormat.format(calendar.time)
         }
 
-        // format date to MM-dd-yyyy
-        fun formatDateToMMddyyyy(milliseconds: Long): String {
-            val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-
-            val calendar = Calendar.getInstance()
-            calendar.timeInMillis = milliseconds
-
-            return outputFormat.format(calendar.time)
-        }
-
-        /// format date to dd MMMM yyyy
-        fun formatDateToddMMMyyyy(milliseconds: Long): String {
-            val outputFormat = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault())
-
-            val calendar = Calendar.getInstance()
-            calendar.timeInMillis = milliseconds
-
-            return outputFormat.format(calendar.time)
-        }
+        //  Format time to mm:ss
 
         @SuppressLint("DefaultLocale")
         fun Int.formatTime(): String {
