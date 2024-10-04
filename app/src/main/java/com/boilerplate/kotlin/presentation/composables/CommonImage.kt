@@ -12,6 +12,7 @@ import coil.compose.SubcomposeAsyncImage
 
 @Composable
 fun CommonImage(
+    modifier: Modifier,
     imageUrl: String,
     contentDescription: String,
     radius: Dp = 12.dp
@@ -23,7 +24,7 @@ fun CommonImage(
         loading = {
             Loader()
         },
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .clip(RoundedCornerShape(radius))
     )

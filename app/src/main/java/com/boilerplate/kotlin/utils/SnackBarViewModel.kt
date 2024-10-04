@@ -30,7 +30,7 @@ class SnackBarViewModel @Inject constructor() : ViewModel() {
         _showSnackBar.value = true
 
         delay(3000)
-//        _showSnackBar.value = false
+        _showSnackBar.value = false
     }
 
     fun hideSnackBar() = viewModelScope.launch {

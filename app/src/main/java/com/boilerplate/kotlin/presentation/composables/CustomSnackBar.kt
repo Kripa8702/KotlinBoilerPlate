@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.boilerplate.kotlin.R
 import com.boilerplate.kotlin.theme.ErrorColor
+import com.boilerplate.kotlin.theme.Grey
 import com.boilerplate.kotlin.theme.SuccessColor
 import com.boilerplate.kotlin.theme.White
 
@@ -47,9 +48,7 @@ fun CustomSnackBar(
     AnimatedVisibility(
         modifier = modifier
             .padding(
-                bottom = 35.dp,
-                start = 12.dp,
-                end = 12.dp
+                bottom = 20.dp,
             )
             .border(
                 color = Color.Transparent,
@@ -74,7 +73,9 @@ fun CustomSnackBar(
             modifier = Modifier
                 .fillMaxSize()
                 .shadow(
-                    elevation = 4.dp,
+                    elevation = 2.dp,
+                    spotColor = Grey,
+                    ambientColor = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(8.dp)
                 )
                 .background(
@@ -105,12 +106,13 @@ fun CustomSnackBar(
                         style = MaterialTheme.typography.labelSmall.copy(
                             fontWeight = FontWeight.Bold
                         ),
+                        color = White
                     )
                 }
                 Icon(
                     imageVector = Icons.Default.Clear,
                     contentDescription = "Clear",
-                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
+                    tint = White.copy(alpha = 0.75f),
                     modifier = Modifier
                         .padding(4.dp)
                         .size(22.dp)

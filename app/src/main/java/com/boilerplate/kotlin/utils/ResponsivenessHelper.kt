@@ -9,21 +9,19 @@ import androidx.compose.ui.unit.dp
 /** This is for Kiosk applications */
 
 @Composable
-fun Dp.toResponsive(): Dp {
+fun Dp.responsive(): Dp {
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     return when {
-        screenHeight < 850.dp -> this * 0.8f // mobile
-        screenHeight < 1300.dp -> this // tablet
-        else -> this * 2f // kiosk
+        screenHeight < 850.dp -> this // mobile
+        else -> this * 2.5f // kiosk
     }
 }
 
 @Composable
-fun TextUnit.toResponsiveText(): TextUnit {
+fun TextUnit.responsiveText(): TextUnit {
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     return when {
-        screenHeight < 850.dp -> this * 0.8f // mobile
-        screenHeight < 1300.dp -> this // tablet
-        else -> this * 2f // kiosk
+        screenHeight < 850.dp -> this // mobile
+        else -> this * 2.5f // kiosk
     }
 }

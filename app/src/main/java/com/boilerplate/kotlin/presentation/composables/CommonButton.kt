@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.boilerplate.kotlin.theme.White
+import com.boilerplate.kotlin.utils.responsive
 
 @Composable
 fun CommonButton(
@@ -27,11 +28,11 @@ fun CommonButton(
     onClick: () -> Unit,
     isFilled: Boolean = true,
     enabled: Boolean = true,
-    textStyle: TextStyle = MaterialTheme.typography.labelMedium.copy(
-        fontWeight = FontWeight.Bold
+    textStyle: TextStyle = MaterialTheme.typography.labelSmall.copy(
+        fontWeight = FontWeight.Medium
     ),
-    height: Dp = 50.dp,
-    radius: Dp = 10.dp
+    height: Dp = 50.dp.responsive(),
+    radius: Dp = 10.dp.responsive()
 ) {
 
     val filledContentColor = White
@@ -43,29 +44,29 @@ fun CommonButton(
             .height(height),
         shape = RoundedCornerShape(radius),
         border = if (!isFilled) BorderStroke(
-            2.dp,
+            2.dp.responsive(),
             MaterialTheme.colorScheme.primary
         ) else null,
         enabled = enabled,
         colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = if (isFilled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
+            containerColor = if (isFilled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background,
             contentColor = if (isFilled) filledContentColor else unfilledContentColor,
-            disabledContainerColor =if (isFilled) MaterialTheme.colorScheme.primary.copy(alpha = 0.7f) else MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
+            disabledContainerColor =if (isFilled) MaterialTheme.colorScheme.primary.copy(alpha = 0.7f) else MaterialTheme.colorScheme.background.copy(alpha = 0.7f),
             disabledContentColor = if (isFilled)  filledContentColor.copy(alpha = 0.6f) else unfilledContentColor.copy(alpha = 0.6f),
         ),
         onClick = { onClick() },
     ) {
         if (enabled)
-            Text(
+            CommonText(
                 text = text,
                 style = textStyle,
-                textAlign = TextAlign.Center,
+                color = if (isFilled) filledContentColor else unfilledContentColor,
             )
         else
             CircularProgressIndicator(
                 modifier = Modifier
-                    .size(20.dp),
-                strokeWidth = 2.dp,
+                    .size(20.dp.responsive()),
+                strokeWidth = 2.dp.responsive(),
                 color = if (isFilled)  filledContentColor.copy(alpha = 0.6f) else unfilledContentColor.copy(alpha = 0.6f),
             )
     }
