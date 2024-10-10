@@ -1,6 +1,7 @@
 package com.boilerplate.kotlin.presentation.composables
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,7 +32,7 @@ fun CommonText(
     val fontSize = style.fontSize.responsiveText()
 
     Box(
-        modifier = modifier.wrapContentHeight(),
+        modifier = modifier.fillMaxWidth().wrapContentHeight(),
         contentAlignment = contentAlignment
     ) {
         if(annotatedString != null) {

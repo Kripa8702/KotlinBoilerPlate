@@ -1,9 +1,10 @@
-package com.boilerplate.kotlin.presentation.screens.dummy
+package com.boilerplate.kotlin.presentation.screens.main.second_tab.viewmodel_usages
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.boilerplate.kotlin.repositories.network.DummyRepository
+import com.boilerplate.kotlin.models.response.UsersData
+import com.boilerplate.kotlin.repositories.network.UsersRepository
 import com.boilerplate.kotlin.repositories.room.DummyRoomRepository
 import com.boilerplate.kotlin.room.dummy.Dummy
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,13 +13,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DummyViewModel @Inject constructor(
-    private val dummyRepository: DummyRepository,
+class ViewModelUsagesViewModel @Inject constructor(
+    private val dummyRepository: UsersRepository,
     private val dummyRoomRepository: DummyRoomRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<DummyUiState>(DummyUiState.Initial)
     val uiState = _uiState
+
+    private val _users = MutableStateFlow<List<UsersData>>(emptyList())
+    val users = _users
 
     private val _isLoggedIn = MutableStateFlow(false)
     val isLoggedIn = _isLoggedIn
@@ -26,15 +30,19 @@ class DummyViewModel @Inject constructor(
 
     /** Network Calls */
     fun fetchDummyFromNetwork(
-        email: String,
-        password: String
+        limit: Int
     ) = viewModelScope.launch {
         _uiState.value = DummyUiState.Loading
 
         try {
 
-            val data = dummyRepository.fetchDummy(email, password)
-            _uiState.value = DummyUiState.Success(data)
+            val data = dummyRepository.fetchAllUsers(
+                limit = limit
+            )
+
+            _users.value = data
+
+            _uiState.value = DummyUiState.Success
 
         } catch (e: Exception) {
 

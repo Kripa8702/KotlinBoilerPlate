@@ -26,15 +26,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.boilerplate.kotlin.R
@@ -46,7 +45,7 @@ import com.boilerplate.kotlin.utils.responsiveText
 fun CommonTextField(
     modifier: Modifier = Modifier,
     textFieldValue: MutableState<TextFieldValue>,
-    textStyle: TextStyle = MaterialTheme.typography.labelSmall,
+    textStyle: TextStyle = MaterialTheme.typography.labelMedium,
     isPassword: Boolean = false,
     onValueChange: (TextFieldValue) -> Unit = {},
     hintText: String = "",
@@ -106,10 +105,10 @@ fun CommonTextField(
                     end = 18.dp.responsive()
                 ),
                 placeholder = {
-                    Text(
+                    CommonText(
                         text = hintText,
-                        style = MaterialTheme.typography.labelSmall,
-                        textAlign = TextAlign.Start,
+                        style = MaterialTheme.typography.labelMedium,
+                        contentAlignment = Alignment.CenterStart,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
                     )
                 },
@@ -143,7 +142,7 @@ fun CommonTextField(
                                 .padding(horizontal = 8.dp.responsive())
                                 .fillMaxHeight()
                                 .width(28.dp.responsive()),
-                            contentAlignment = androidx.compose.ui.Alignment.Center
+                            contentAlignment = Alignment.Center
 
                         ) {
                             leadingIcon()

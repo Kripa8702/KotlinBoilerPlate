@@ -1,4 +1,4 @@
-package com.boilerplate.kotlin.presentation.screens.dummy
+package com.boilerplate.kotlin.presentation.screens.main.first_tab.composable_usages
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -10,15 +10,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -34,9 +37,8 @@ import com.boilerplate.kotlin.utils.SnackBarViewModel
 import com.boilerplate.kotlin.utils.responsive
 
 @Composable
-fun DummyScreen(
-    navController: NavController,
-    dummyViewModel: DummyViewModel
+fun ComposableUsagesScreen(
+    navController: NavController
 ) {
     val snackBarViewModel = hiltViewModel<SnackBarViewModel>()
 
@@ -48,11 +50,11 @@ fun DummyScreen(
     val focusManager = LocalFocusManager.current
 
     BaseScreen {
-        // Your screen content here
         Column {
             CommonText(
-                text = "Dummy Usages",
+                text = "Composable Usages",
                 style = MaterialTheme.typography.titleMedium,
+                contentAlignment = Alignment.CenterStart,
             )
 
             Spacer(modifier = Modifier.height(25.dp.responsive()))
@@ -61,9 +63,10 @@ fun DummyScreen(
                 textFieldValue = textField,
                 hintText = "Search here...",
                 leadingIcon = {
-                    CommonText(
-                        text = "🔍",
-                        style = MaterialTheme.typography.labelMedium,
+                    Icon(
+                        imageVector = Icons.Filled.Search,
+                        contentDescription = "Search Icon",
+                        tint = MaterialTheme.colorScheme.outline
                     )
                 },
                 keyboardOptions = KeyboardOptions(
@@ -87,7 +90,7 @@ fun DummyScreen(
                     text = "This is a dummy container",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.surface,
+                    color = MaterialTheme.colorScheme.tertiary,
                 )
             }
 

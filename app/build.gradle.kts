@@ -21,17 +21,17 @@ android {
     productFlavors {
         create("development") {
             dimension = "env"
-            buildConfigField("String", "API_URL", "\"https://api.develop.dummy.com/\"")
+            buildConfigField("String", "API_URL", "\"https://dummyjson.com/\"")
 
         }
         create("stage") {
             dimension = "env"
-            buildConfigField("String", "API_URL", "\"https://api.staging.dummy.com/\"")
+            buildConfigField("String", "API_URL", "\"https://dummyjson.com/\"")
 
         }
         create("prod") {
             dimension = "env"
-            buildConfigField("String", "API_URL", "\"https://api.dummy.com/\"")
+            buildConfigField("String", "API_URL", "\"https://dummyjson.com/\"")
 
         }
     }

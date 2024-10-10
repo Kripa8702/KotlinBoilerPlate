@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.boilerplate.kotlin.api.ApiService
 import com.boilerplate.kotlin.interceptors.LoggingInterceptor
-import com.boilerplate.kotlin.repositories.network.DummyRepository
+import com.boilerplate.kotlin.repositories.network.UsersRepository
 import com.boilerplate.kotlin.repositories.room.DummyRoomRepository
 import com.boilerplate.kotlin.room.dummy.DummyDao
 import com.boilerplate.kotlin.room.dummy.DummyDatabase
@@ -55,7 +55,7 @@ object AppModule {
 
     /** --- Dummy ---------------- */
     @Provides
-    fun providesDummyRepository(apiService: ApiService) = DummyRepository(apiService)
+    fun providesDummyRepository(apiService: ApiService) = UsersRepository(apiService)
 
 
     /** Room Database ---------------------------------------- */

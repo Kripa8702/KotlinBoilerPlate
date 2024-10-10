@@ -4,33 +4,31 @@ import android.util.Log
 import com.boilerplate.kotlin.api.ApiService
 import com.boilerplate.kotlin.exceptions.ApiException
 import com.boilerplate.kotlin.exceptions.CustomException
-import com.boilerplate.kotlin.models.request.DummyRequest
-import com.boilerplate.kotlin.models.response.DummyData
+import com.boilerplate.kotlin.models.request.FetchUsersRequest
+import com.boilerplate.kotlin.models.response.UsersData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class DummyRepository @Inject constructor(
+class UsersRepository @Inject constructor(
     private val apiService: ApiService
 ) {
 
-    suspend fun fetchDummy(
-        email: String,
-        password: String
-    ): DummyData {
+    suspend fun fetchAllUsers(
+       limit: Int
+    ): List<UsersData> {
 
         // Make request
-        val request = DummyRequest(
-            email = email,
-            password = password
+        val request = FetchUsersRequest(
+           limit = limit
         )
 
         // Hit API
         return withContext(Dispatchers.IO) {
             try {
-                val res = apiService.fetchDummy(dummyRequest = request)
+                val res = apiService.fetchAllUsers(request)
                 if (res.success) {
-                    res.data ?: throw CustomException("Data not found")
+                    res.users ?: throw CustomException("Data not found")
                 } else {
                     throw CustomException(res.message)
                 }

@@ -9,12 +9,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -28,7 +26,7 @@ fun CommonButton(
     onClick: () -> Unit,
     isFilled: Boolean = true,
     enabled: Boolean = true,
-    textStyle: TextStyle = MaterialTheme.typography.labelSmall.copy(
+    textStyle: TextStyle = MaterialTheme.typography.labelMedium.copy(
         fontWeight = FontWeight.Medium
     ),
     height: Dp = 50.dp.responsive(),
