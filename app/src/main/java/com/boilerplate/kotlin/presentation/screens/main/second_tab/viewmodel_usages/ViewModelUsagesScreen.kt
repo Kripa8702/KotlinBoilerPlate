@@ -41,7 +41,6 @@ fun ViewModelUsagesScreen(
 
     BaseScreen(
         title = "ViewModel Usages",
-        paddingValues = PaddingValues(start = 16.w(), end = 16.w(), top = 8.h()),
     ) {
         when (uiState.value) {
 

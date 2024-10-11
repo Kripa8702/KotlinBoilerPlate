@@ -20,7 +20,6 @@ fun BottomNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
-
     val viewModelUsagesViewModel = hiltViewModel<ViewModelUsagesViewModel>()
 
     NavHost(

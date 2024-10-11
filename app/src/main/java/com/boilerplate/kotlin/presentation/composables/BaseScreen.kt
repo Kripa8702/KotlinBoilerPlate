@@ -26,7 +26,7 @@ import com.boilerplate.kotlin.utils.w
 @Composable
 fun BaseScreen(
     title: String = "",
-    paddingValues: PaddingValues = PaddingValues(vertical = 8.h(), horizontal = 16.w()),
+    paddingValues: PaddingValues = PaddingValues(top = 16.h(), start = 16.w(), end = 16.w()),
     content: @Composable () -> Unit,
 ) {
 
