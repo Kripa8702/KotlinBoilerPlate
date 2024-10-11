@@ -1,11 +1,11 @@
 package com.boilerplate.kotlin.presentation.screens.main.second_tab.viewmodel_usages
 
 
-sealed class DummyUiState {
-    data object Initial : DummyUiState()
-    data object Loading : DummyUiState()
+sealed class ViewModelUsagesUiState {
+    data object Initial : ViewModelUsagesUiState()
+    data object Loading : ViewModelUsagesUiState()
 
-    data object Success : DummyUiState()
+    data object Success : ViewModelUsagesUiState()
 
-    data class Error(val message: String) : DummyUiState()
+    data class Error(val message: String) : ViewModelUsagesUiState()
 }

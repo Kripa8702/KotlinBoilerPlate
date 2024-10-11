@@ -22,17 +22,20 @@ fun CommonText(
     text: String,
     annotatedString: AnnotatedString? = null,
     style: TextStyle = MaterialTheme.typography.bodyMedium,
-    textAlign: TextAlign = TextAlign.Center,
-    contentAlignment: Alignment = Alignment.Center,
+    textAlign: TextAlign = TextAlign.Start,
+    contentAlignment: Alignment = Alignment.CenterStart,
     color: Color = MaterialTheme.colorScheme.onSurface,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
-    fontStyle: FontStyle = FontStyle.Normal
+    fontStyle: FontStyle = FontStyle.Normal,
+    takeFullWidth: Boolean = true
 ) {
     val fontSize = style.fontSize.responsiveText()
 
     Box(
-        modifier = modifier.fillMaxWidth().wrapContentHeight(),
+        modifier = modifier
+            .wrapContentHeight()
+            .then(if(takeFullWidth) Modifier.fillMaxWidth() else Modifier),
         contentAlignment = contentAlignment
     ) {
         if(annotatedString != null) {

@@ -11,10 +11,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.boilerplate.kotlin.R
+import com.boilerplate.kotlin.utils.h
 
 @Composable
 fun CommonImage(
@@ -23,7 +22,7 @@ fun CommonImage(
     imageUrl: String = "",
     isNetworkImage: Boolean = true,
     contentDescription: String,
-    radius: Dp = 12.dp
+    roundedCornerShape: RoundedCornerShape = RoundedCornerShape(12.h())
 ) {
 
     if (isNetworkImage) {
@@ -48,13 +47,13 @@ fun CommonImage(
             },
             modifier = modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(radius))
+                .clip(roundedCornerShape)
         )
     } else {
         Box(
             modifier = modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(radius))
+                .clip(roundedCornerShape)
         ) {
             Image(
                 modifier = Modifier.fillMaxSize(),

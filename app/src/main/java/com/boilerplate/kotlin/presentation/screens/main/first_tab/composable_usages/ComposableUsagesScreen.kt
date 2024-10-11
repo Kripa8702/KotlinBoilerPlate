@@ -17,14 +17,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.boilerplate.kotlin.presentation.composables.BaseScreen
@@ -34,7 +32,8 @@ import com.boilerplate.kotlin.presentation.composables.CommonImage
 import com.boilerplate.kotlin.presentation.composables.CommonText
 import com.boilerplate.kotlin.presentation.composables.CommonTextField
 import com.boilerplate.kotlin.utils.SnackBarViewModel
-import com.boilerplate.kotlin.utils.responsive
+import com.boilerplate.kotlin.utils.h
+import com.boilerplate.kotlin.utils.w
 
 @Composable
 fun ComposableUsagesScreen(
@@ -49,16 +48,10 @@ fun ComposableUsagesScreen(
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
 
-    BaseScreen {
+    BaseScreen(
+        title = "Composable Usages"
+    ) {
         Column {
-            CommonText(
-                text = "Composable Usages",
-                style = MaterialTheme.typography.titleMedium,
-                contentAlignment = Alignment.CenterStart,
-            )
-
-            Spacer(modifier = Modifier.height(25.dp.responsive()))
-
             CommonTextField(
                 textFieldValue = textField,
                 hintText = "Search here...",
@@ -81,7 +74,7 @@ fun ComposableUsagesScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(16.dp.responsive()))
+            Spacer(modifier = Modifier.height(16.h()))
 
             CommonContainer(
                 color = MaterialTheme.colorScheme.secondary,
@@ -94,15 +87,15 @@ fun ComposableUsagesScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp.responsive()))
+            Spacer(modifier = Modifier.height(16.h()))
 
             CommonImage(
-                modifier = Modifier.height(200.dp.responsive()),
+                modifier = Modifier.height(300.h()),
                 imageUrl = "https://picsum.photos/200/300",
                 contentDescription = "This is a dummy image",
             )
 
-            Spacer(modifier = Modifier.height(30.dp.responsive()))
+            Spacer(modifier = Modifier.height(30.h()))
 
             Row(
                 modifier = Modifier
@@ -113,9 +106,11 @@ fun ComposableUsagesScreen(
                     modifier = Modifier.weight(0.5f),
                     text = "Dismiss",
                     isFilled = false,
-                    onClick = {}
+                    onClick = {
+                        snackBarViewModel.hideSnackBar()
+                    }
                 )
-                Spacer(modifier = Modifier.width(16.dp.responsive()))
+                Spacer(modifier = Modifier.width(16.w()))
                 CommonButton(
                     modifier = Modifier.weight(0.5f),
                     text = "Show Snack Bar",
@@ -126,7 +121,7 @@ fun ComposableUsagesScreen(
                     }
                 )
             }
-            Spacer(modifier = Modifier.height(16.dp.responsive()))
+            Spacer(modifier = Modifier.height(16.h()))
         }
     }
 }

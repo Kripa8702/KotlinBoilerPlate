@@ -35,10 +35,10 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.boilerplate.kotlin.R
-import com.boilerplate.kotlin.utils.responsive
+import com.boilerplate.kotlin.utils.h
 import com.boilerplate.kotlin.utils.responsiveText
+import com.boilerplate.kotlin.utils.w
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,7 +75,7 @@ fun CommonTextField(
         BasicTextField(
             modifier = modifier
                 .fillMaxWidth()
-                .height(50.dp.responsive())
+                .height(50.h())
                 .fillMaxHeight(),
             value = textFieldValue.value,
             onValueChange = {
@@ -101,8 +101,8 @@ fun CommonTextField(
                 enabled = true,
                 visualTransformation = VisualTransformation.None,
                 singleLine = true,
-                contentPadding = if (leadingIcon == null) PaddingValues(horizontal = 18.dp.responsive()) else PaddingValues(
-                    end = 18.dp.responsive()
+                contentPadding = if (leadingIcon == null) PaddingValues(horizontal = 18.w()) else PaddingValues(
+                    end = 18.w()
                 ),
                 placeholder = {
                     CommonText(
@@ -121,11 +121,11 @@ fun CommonTextField(
                     if (isPassword) {
                         IconButton(
                             modifier = Modifier
-                                .padding(horizontal = 10.dp.responsive())
+                                .padding(horizontal = 10.w())
                                 .fillMaxHeight(),
                             onClick = { isVisible.value = !isVisible.value }) {
                             Icon(
-                                modifier = Modifier.size(24.dp.responsive()),
+                                modifier = Modifier.size(24.h()),
                                 painter = painterResource(id = image),
                                 tint = if (isFocused.value) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary.copy(
                                     alpha = 0.4f
@@ -139,9 +139,9 @@ fun CommonTextField(
                     {
                         Box(
                             modifier = Modifier
-                                .padding(horizontal = 8.dp.responsive())
+                                .padding(horizontal = 8.w())
                                 .fillMaxHeight()
-                                .width(28.dp.responsive()),
+                                .width(28.w()),
                             contentAlignment = Alignment.Center
 
                         ) {
@@ -156,7 +156,7 @@ fun CommonTextField(
                         enabled = true,
                         interactionSource = interactionSource,
                         isError = isError,
-                        shape = RoundedCornerShape(8.dp.responsive()),
+                        shape = RoundedCornerShape(8.h()),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = MaterialTheme.colorScheme.primary,
                             unfocusedBorderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
@@ -177,7 +177,7 @@ fun CommonTextField(
                 text = errorText,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.error,
-                modifier = Modifier.padding(top = 10.dp.responsive())
+                modifier = Modifier.padding(top = 10.h())
             )
         }
     }

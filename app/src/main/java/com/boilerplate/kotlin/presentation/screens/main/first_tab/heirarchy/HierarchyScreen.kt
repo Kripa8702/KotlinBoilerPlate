@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.boilerplate.kotlin.R
 import com.boilerplate.kotlin.navigation.NavigationItem
@@ -19,37 +18,32 @@ import com.boilerplate.kotlin.presentation.composables.CommonButton
 import com.boilerplate.kotlin.presentation.composables.CommonImage
 import com.boilerplate.kotlin.presentation.composables.CommonText
 import com.boilerplate.kotlin.utils.NavigationHelper
-import com.boilerplate.kotlin.utils.responsive
+import com.boilerplate.kotlin.utils.h
 
 @Composable
 fun HierarchyScreen(
     navController: NavController,
 ) {
-    BaseScreen {
+    BaseScreen(
+        title = "Project Hierarchy"
+    ) {
         Column(
             modifier = Modifier.fillMaxSize(),
         ) {
             CommonText(
-                text = "Project Hierarchy",
-                style = MaterialTheme.typography.titleMedium,
-                contentAlignment = Alignment.CenterStart,
-            )
-            Spacer(modifier = Modifier.height(30.dp.responsive()))
-
-            CommonText(
                 text = "You can find the project hierarchy below. It shows the structure of the project and how the different NavGraphs are organized.",
-                style = MaterialTheme.typography.labelSmall,
+                style = MaterialTheme.typography.labelMedium,
                 textAlign = TextAlign.Start
             )
-            Spacer(modifier = Modifier.height(25.dp.responsive()))
+            Spacer(modifier = Modifier.height(25.h()))
             CommonImage(
-                modifier = Modifier.height(380.dp.responsive()),
+                modifier = Modifier.height(400.h()),
                 imageResourceId = R.drawable.project_hierarchy,
                 isNetworkImage = false,
                 contentDescription = "Project Hierarchy Image",
             )
 
-            Spacer(modifier = Modifier.height(40.dp.responsive()))
+            Spacer(modifier = Modifier.height(40.h()))
 
             CommonButton(
                 text = "Go to Composable Usages",
@@ -57,12 +51,14 @@ fun HierarchyScreen(
                    NavigationHelper(navController).navigateTo(NavigationItem.ComposableUsages)
                 }
             )
-            Spacer(modifier = Modifier.height(25.dp.responsive()))
+            Spacer(modifier = Modifier.height(25.h()))
             CommonText(
                 text = "Tap on the second tab to see the ViewModel Usages",
                 style = MaterialTheme.typography.labelSmall.copy(
                     fontWeight = FontWeight.Normal
                 ),
+                textAlign = TextAlign.Center,
+                contentAlignment = Alignment.Center
             )
         }
     }

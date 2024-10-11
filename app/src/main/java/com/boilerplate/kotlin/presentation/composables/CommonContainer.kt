@@ -13,11 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.boilerplate.kotlin.utils.h
 
 @Composable
 fun CommonContainer(
     modifier: Modifier = Modifier,
-    radius: Dp = 12.dp,
+    radius: Dp = 12.h(),
     paddingValues: PaddingValues = PaddingValues(16.dp),
     contentAlignment: Alignment = Alignment.TopStart,
     color: Color = MaterialTheme.colorScheme.surface,

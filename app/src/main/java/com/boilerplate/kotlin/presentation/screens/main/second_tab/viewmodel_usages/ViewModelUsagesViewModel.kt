@@ -18,7 +18,7 @@ class ViewModelUsagesViewModel @Inject constructor(
     private val dummyRoomRepository: DummyRoomRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<DummyUiState>(DummyUiState.Initial)
+    private val _uiState = MutableStateFlow<ViewModelUsagesUiState>(ViewModelUsagesUiState.Initial)
     val uiState = _uiState
 
     private val _users = MutableStateFlow<List<UsersData>>(emptyList())
@@ -29,10 +29,10 @@ class ViewModelUsagesViewModel @Inject constructor(
 
 
     /** Network Calls */
-    fun fetchDummyFromNetwork(
+    fun fetchAllUsers(
         limit: Int
     ) = viewModelScope.launch {
-        _uiState.value = DummyUiState.Loading
+        _uiState.value = ViewModelUsagesUiState.Loading
 
         try {
 
@@ -42,11 +42,11 @@ class ViewModelUsagesViewModel @Inject constructor(
 
             _users.value = data
 
-            _uiState.value = DummyUiState.Success
+            _uiState.value = ViewModelUsagesUiState.Success
 
         } catch (e: Exception) {
 
-            _uiState.value = DummyUiState.Error(e.message ?: "An error occurred")
+            _uiState.value = ViewModelUsagesUiState.Error(e.message ?: "An error occurred")
 
         }
     }

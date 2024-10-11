@@ -18,7 +18,7 @@ sealed class BottomNavComponent(
     )
 
     data object ViewModelUsages : BottomNavComponent(
-        name = "ViewModel Usages",
+        name = "ViewModel",
         route = NavigationItem.ViewModelUsages.route,
         iconSelected = R.drawable.composable_filled,
         iconUnselected = R.drawable.composable_unfilled

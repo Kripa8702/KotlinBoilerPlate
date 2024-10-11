@@ -104,6 +104,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     /** Convert to new Library Catalog Declaration */
+    // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
     // Navigation

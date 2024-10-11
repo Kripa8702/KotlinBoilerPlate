@@ -36,6 +36,8 @@ import com.boilerplate.kotlin.theme.ErrorColor
 import com.boilerplate.kotlin.theme.Grey
 import com.boilerplate.kotlin.theme.SuccessColor
 import com.boilerplate.kotlin.theme.White
+import com.boilerplate.kotlin.utils.h
+import com.boilerplate.kotlin.utils.w
 
 @Composable
 fun CustomSnackBar(
@@ -48,7 +50,7 @@ fun CustomSnackBar(
     AnimatedVisibility(
         modifier = modifier
             .padding(
-                bottom = 20.dp,
+                bottom = 20.h(),
             )
             .border(
                 color = Color.Transparent,
@@ -73,19 +75,19 @@ fun CustomSnackBar(
             modifier = Modifier
                 .fillMaxSize()
                 .shadow(
-                    elevation = 2.dp,
+                    elevation = 2.h(),
                     spotColor = Grey,
                     ambientColor = MaterialTheme.colorScheme.primary,
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(8.h())
                 )
                 .background(
                     color = if (isSuccess) SuccessColor else ErrorColor,
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(8.h())
                 )
         ) {
             Row(
                 modifier = Modifier
-                    .padding(horizontal = 12.dp)
+                    .padding(horizontal = 12.w())
                     .fillMaxSize(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -98,9 +100,9 @@ fun CustomSnackBar(
                         tint = White,
                         contentDescription = "Status",
                         modifier = Modifier
-                            .size(16.dp)
+                            .size(16.h())
                     )
-                    Spacer(modifier = Modifier.width(10.dp))
+                    Spacer(modifier = Modifier.width(10.w()))
                     Text(
                         text = message,
                         style = MaterialTheme.typography.labelSmall.copy(
@@ -114,8 +116,8 @@ fun CustomSnackBar(
                     contentDescription = "Clear",
                     tint = White.copy(alpha = 0.75f),
                     modifier = Modifier
-                        .padding(4.dp)
-                        .size(22.dp)
+                        .padding(4.h())
+                        .size(22.h())
                         .clickable {
                             onDismiss()
                         }
