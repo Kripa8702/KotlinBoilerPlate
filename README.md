@@ -10,6 +10,7 @@ This is a Kotlin boilerplate project designed for Android app development. It fo
 - **Firebase Crashlytics**: Integrated Firebase Crashlytics for crash reporting and tracking in production.
 - **Logging Interceptors**: Easily debug network requests and responses using built-in logging interceptors for HTTP calls.
 - **ViewModels with Dagger Hilt Integration**: Manage UI-related data and logic with ViewModels, seamlessly integrated with Dagger Hilt for dependency injection.
+- **Color Scheme for Light and Dark Mode**: Customize the color scheme for both light and dark modes to match your app’s design specifications.
 
 ## Project Folder Structure
 ```
@@ -124,7 +125,7 @@ fun Int.h(): Dp {
 ```
 
 ### 6. Customize Theme
-- Update the colors in Color.kt to match your app’s color scheme ( Location : ```theme/Color.kt``` )
+- Update the colors in Color.kt to match your app’s color scheme for light and dark mode ( Location : ```theme/Color.kt``` )
 - To change the native splash screen colors for both light and dark modes:
     - File Locations:
         - Light mode : ```res/values/splash.xml```
