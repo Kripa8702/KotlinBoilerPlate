@@ -77,7 +77,7 @@ cd kotlin-boilerplate
 Update the API URLs in the build.gradle file (app-level) to match your environment.
 - Location: Under the android block, in the productFlavors block.
 - Modify the appropriate flavor with your development, staging, or production API URLs.
-```
+```kotlin
 android {
     productFlavors {
         dev {
@@ -91,10 +91,12 @@ android {
         }
     }
 }
+
+// To access the BASE_URL in your code, use like : BuildConfig.BASE_URL
 ```
 ### 3. Convert Dependencies to Library Catalog Declaration
 If you want to use new library catalog declarations, convert the existing implementation blocks in the build.gradle (app-level) to match the new format in the libs.versions.toml file.
-```
+```kotlin
 // Old format
 implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
@@ -110,7 +112,7 @@ Make sure to set up Firebase Crashlytics for error tracking in your app.
 Modify the height and width values in ResponsivenessHelper.kt to match your app's design specifications.
 - Location: utils/ResponsivenessHelper.kt
 
-```
+```kotlin
 @Composable
 fun Int.h(): Dp {
     val figmaHeight = 812       // Replace this with the height of the figma design
@@ -128,8 +130,10 @@ fun Int.h(): Dp {
         - Light mode : ```res/values/splash.xml```
         - Dark mode : ```res/values-night/splash.xml```
     - Update the windowSplashScreenBackground tag in both files to reflect your desired splash screen background color.  Replace @color/your_splash_color with your app’s splash screen background color.
-    ```
+    ```xml 
     <item name="windowSplashScreenBackground">@color/your_splash_color</item>
     ```  
 
 After completing these steps, your project should be ready for development!
+
+
